@@ -1,0 +1,91 @@
+
+
+SQL> set serveroutput on;
+SQL> create table theatre_data(screen_id number(3) primary key,
+  2  capacity number,
+  3  remark varchar(100));
+
+Table created.
+
+SQL> desc theatre_data;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SCREEN_ID                                 NOT NULL NUMBER(3)
+ CAPACITY                                           NUMBER
+ REMARK                                             VARCHAR2(100)
+
+SQL> insert into theatre_data values(1,75,null);
+
+1 row created.
+
+SQL> insert into theatre_data values(2,125,null);
+
+1 row created.
+
+SQL> insert into theatre_data values(3,175,null);
+
+1 row created.
+
+SQL> desc theatre_data;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SCREEN_ID                                 NOT NULL NUMBER(3)
+ CAPACITY                                           NUMBER
+ REMARK                                             VARCHAR2(100)
+
+Write a pl/sql block to accept the id of screen(theatre) available in the mall
+ and no of seats available in that screen(theatre). 
+if number of seats are 75 then its fairly small
+if no of seats are 125 then little bigger
+if no of seats are 175 then lot of room to sit
+else print either its too big or small
+
+use table theatre_data(screen_id,capacity,remark)
+                   1,125,little bigger ...............in this 
+manner data(remark from pl/sql block) can be saved.
+--------------------------------------
+
+declare
+id number :=&id;
+cap number;
+begin
+select screen_id,capacity into id,cap from theatre_data where screen_id=id;
+if ( cap=75) then
+update theatre_data  set remark='fairly small' where  screen_id=id;
+elsif ( cap=125) then
+update theatre_data  set remark='little bigger' where  screen_id=id;
+elsif ( cap=175) then
+update theatre_data  set remark='lot of room to sit' where  screen_id=id;
+else
+dbms_output.put_line('else print either its too big or small');
+end if;
+end;
+
+
+SQL> /
+Enter value for id: 3
+old   2: id number :=&id;
+new   2: id number :=3;
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from theatre_data;
+
+ SCREEN_ID   CAPACITY
+---------- ----------
+REMARK
+--------------------------------------------------------------------------------
+         1         75
+fairly small
+
+         2        125
+little bigger
+
+         3        175
+lot of room to sit
+
+
+SQL>
+
+
+

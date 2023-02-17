@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AJAX ON VLICK </h1>
+    <p id="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur porro asperiores quisquam ut officiis nulla dignissimos vel et assumenda officia corporis quia ipsum, distinctio eaque iure aperiam minus repellendus ab.</p>
+
+    <button type="button" onclick="load()">AJAX MAGIC</button>
+
+    <script>
+        function load()
+        {
+            var xhttp = new XMLHttpRequest()
+            xhttp.open("GET","theatre.txt",false)
+            xhttp.send()
+            document.getElementById("demo").innerHTML=xhttp.responseText
+        }
+    </script>
+</body>
+</html>

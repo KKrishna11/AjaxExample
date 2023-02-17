@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>
+This is Ajax using On click Event : 
+</h1>
+ 
+<p id="demo">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure ut quisquam, at aliquam nulla excepturi sed perferendis earum officia illo assumenda, veritatis aspernatur unde distinctio hic? Vel exercitationem illo rerum.
+</p>
+
+<button type="button" onclick="loaddoc()">
+Click me bro 
+</button>
+
+l̥
+<script>
+
+function loaddoc ()
+{
+
+var xhttp=new XMLHttpRequest();
+xhttp.open("Get","theatre.txt",false);
+xhttp.send();
+document.getElementById("demo").innerHTML=xhttp.responseText;
+
+
+}
+
+</script>
+
+
+
+</body>
+</html>
